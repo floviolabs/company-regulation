@@ -1,0 +1,54 @@
+{
+  "name": "tic-backend",
+  "version": "1.0.0",
+  "description": "AEON TIC backend",
+  "main": "app.js",
+  "author": "AEON Indonesia",
+  "license": "ISC",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "jest"
+  },
+  "dependencies": {
+    "activedirectory2": "^2.1.0",
+    "async": "^3.2.4",
+    "bcrypt": "^5.1.0",
+    "bcryptjs": "^2.4.3",
+    "body-parse": "^0.1.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "http": "^0.0.1-security",
+    "http-errors": "~1.6.3",
+    "http-status-codes": "^2.2.0",
+    "i": "^0.3.7",
+    "jade": "^0.29.0",
+    "joi": "^17.8.4",
+    "jsonwebtoken": "^9.0.0",
+    "moment": "^2.29.4",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^3.0.2",
+    "nodemon": "^2.0.21",
+    "npm": "^9.8.1",
+    "openai": "^3.2.1",
+    "pg": "^8.10.0",
+    "redis": "^4.6.5",
+    "socket.io": "^4.6.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.22.10",
+    "@babel/register": "^7.22.5",
+    "babel-jest": "^29.6.2",
+    "jest": "^29.6.2",
+    "supertest": "^6.3.3"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  }
+}
