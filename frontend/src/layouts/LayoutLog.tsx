@@ -39,7 +39,7 @@ const LayoutLog = () => {
         try {
           const config = {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+              Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
             },
           };
           const response = await axios.post(endpoint + 'logs/get-all', {}, config);

@@ -17,14 +17,14 @@ const Navigation = (props:any) => {
     const [openArena, setOpenArena] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)
 
-    const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('arnUser')!))
+    const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('regulationUser')!))
     const [menuCategory, setMenuCategory] = useState<any[]>([])
     const [menuCategoryActive, setMenuCategoryActive] = useState<any[]>([])
     const [allData, setAllData] = useState<any[]>([])
 
     const [search, setSearch] =useState('')
 
-    const storedToken = localStorage.getItem('arnToken')
+    const storedToken = localStorage.getItem('regulationToken')
 
     type IconNames = keyof typeof Icons; 
 
@@ -32,7 +32,7 @@ const Navigation = (props:any) => {
         try {
           const config = {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+              Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
             },
           };
           const response = await axios.post(endpoint + 'menus/get-all', {}, config);
@@ -100,50 +100,19 @@ const Navigation = (props:any) => {
         <div className='flex flex-row w-screen h-screen'>
             <div id="sidebar" className={`flex-col h-screen overflow-x-hidden overflow-y-hidden ${openMenu ? (mobile ? 'hidden':'w-[320px]') : 'w-0'} duration-700 bg-primary ${mobile ? 'absolute z-10' : 'relative'}`}>
                 <div className={`flex justify-center mt-4 mb-5 items-start`}>
-                    <Link href={'/dashboard'}>
+                    <Link href={'/document'}>
                         <Image
-                            src={'/arena-full-white.png'}
+                            src={'/aeon-white.png'}
                             width={120} height={10}
-                            alt='Arena'
+                            alt='aeon'
                             className={` ${openMenu ? 'duration-[2000ms]':' opacity-0'} items-start`}/>
                     </Link>
                 </div>
 
                 <div className={`flex flex-col h-full  gap-1 overflow-y-auto ${openMenu ? 'duration-[2000ms]':'opacity-0'}`}>
-                    <label className={`flex flex-row text-xs text-white mx-1 p-3 rounded-lg items-center h-5 mt-2 -mb-3 uppercase font-semibold opacity-50`}>Categories</label>
-                    <ul className="menu menu-xs w-full -mb-5">
-                        <li>
-                            <Link href={`dashboard#favorite`} className="flex flex-row justify-between text-white hover:bg-primary-focus py-2 ml-3">
-                                <div className="text-white font-bold">Favorite</div>
-                                {/* <div className="flex justify-center items-center rounded-xl absolute right-5 bg-primary-focus text-white w-5 h-5">{category.menus.length}</div> */}
-                            </Link>
-                        </li>
-                    </ul>
+        
                    
-                    {
-                        groupedData.map((category:any) => (
-                            <ul key={category.category} className="menu menu-xs w-full -mb-5">
-                                <li>
-                                    {/* <details> */}
-                                            <Link href={`dashboard#` + category.category} className="flex flex-row justify-between text-white hover:bg-primary-focus py-2 ml-3">
-                                                <div className="text-white">{category.category}</div>
-                                                <div className="flex justify-center items-center rounded-xl absolute right-5 bg-primary-focus text-white w-5 h-5">{category.menus.length}</div>
-                                            </Link>
-                                        <ul>
-                                        {/* {
-                                            category.menus.map((menu:any) => (
-                                                <div className="flex flex-row gap-2 text-xs cursor-pointer text-white p-2 hover:bg-primary-focus rounded-md" key={menu.id}>
-                                                    <DynamicIcon icon={menu.icon}/>
-                                                    {menu.menu}
-                                                </div>
-                                            ))
-                                        } */}
-                                        </ul>
-                                    {/* </details> */}
-                                </li>
-                            </ul>
-                        ))
-                    }
+                 
                     <div className={`mt-3 ${userData[0].dvname == 'IT' ? '' : 'hidden'}`}>             
                         {
                             menuAdmin.map((item:any,index:number)=>{
@@ -167,11 +136,11 @@ const Navigation = (props:any) => {
                 <div className={`justify-between flex flex-row w-full items-center  bg-gray-100 px-3 gap-1 py-3`}>
                     <Image
                         onClick={() => mobile ? '' : setOpenMenu(!openMenu)}
-                        src={'/arena.png'}
-                        width={40} height={10}
-                        alt='Arena'
+                        src={'/aeon.png'}
+                        width={90} height={10}
+                        alt='aeon'
                         className={`mx-2 ${openMenu ? 'w-0 hidden' : ''} cursor-pointer p-1`}/>
-                    <MdMenu className={`${openMenu ? ' w-10' : 'w-0 hidden'} flex text-3xl text-primary h-10  hover:bg-gray-200 rounded-3xl p-2 cursor-pointer mx-3 ${!mobile && ''}`} onClick={() => setOpenMenu(!openMenu)}/>
+                    <MdMenu className={`${openMenu ? ' w-10' : 'w-0 hidden'} flex text-3xl text-primary h-8 rounded-3xl px-2 cursor-pointer mx-3 ${!mobile && ''}`} onClick={() => setOpenMenu(!openMenu)}/>
                     <div className={`${mobile && 'hidden'} z-10 relative flex bg-white w-[500px] rounded-2xl p-1 items-center px-3 gap-1`}>
                            
                         <div className={`${(search.length < 3) ? 'h-0 text-white' : 'max-h-[210px]'} overflow-y-auto -z-10 duration-300 w-[500px] flex top-5 left-0 bg-white absolute rounded-b-2xl`}>
@@ -193,7 +162,7 @@ const Navigation = (props:any) => {
                     
 
                     <div className="flex flex-row gap-1">
-                        <MdViewCompact onClick={()=>{setOpenArena(!openArena);setOpenProfile(false)}}  className={`hidden btn btn-sm btn-circle btn-primary p-1 cursor-pointer`}/>
+                        <MdViewCompact onClick={()=>{setOpenArena(!openArena);setOpenProfile(false)}}  className={` btn btn-sm btn-circle btn-primary p-1 cursor-pointer`}/>
                         <div onClick={()=>{setOpenProfile(!openProfile);setOpenArena(false)}}  className={`${openMenu && mobile && ''} duration-1000 flex max-w-sm px-4 py-2 text-xs gap-1 bg-primary rounded-2xl justify-center cursor-pointer hover:bg-primary-focus`}>
                             <div className='text-white opacity-50'>
                                 Login as
@@ -216,7 +185,7 @@ const Navigation = (props:any) => {
 
             </div>
 
-            <div className={`${!openArena && 'hidden'} ${mobile ? 'w-full mt-16 px-3' : 'right-3 mt-[55px]'} flex justify-center absolute`}>
+            <div className={`${!openArena && 'hidden'} ${mobile ? 'w-full mt-16 px-3' : 'right-3 mt-[60px]'} flex justify-center absolute`}>
                 <div className={`w-[300px] ${openMenu && mobile && 'opacity-0'} duration-1000 bg-gray-200 shadow-md shadow-gray-300 rounded-[40px] p-2`}>
                     <div className={` max-h-[500px] w-full bg-gray-100 rounded-[33px] overflow-y-auto p-2 flex-wrap flex flex-row`}>
                             {
@@ -231,7 +200,7 @@ const Navigation = (props:any) => {
                 </div>
             </div>
 
-            <div className={`${!openProfile && 'hidden'} right-3 mt-[55px] flex justify-center absolute cursor-pointer`}>
+            <div className={`${!openProfile && 'hidden'} right-3 mt-60px] flex justify-center absolute cursor-pointer`}>
                 <Link href={'/logout'} className={`flex flex-row duration-1000 h-10 w-[250px] items-center justify-center gap-1 bg-white border-2 border-primary shadow-md shadow-gray-300 rounded-3xl p-2`}>
                     {/* <div className={`h-full w-full bg-gray-100 rounded-[33px]`}> */}
                         <Icons.RiCloseCircleFill className="text-primary"/>

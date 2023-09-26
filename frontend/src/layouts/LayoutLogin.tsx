@@ -171,8 +171,8 @@ const LayoutLogin = () => {
     
         const data = await response.json()
         if (data.status) {
-          localStorage.setItem('arnToken', data.token)
-          localStorage.setItem('arnUser', JSON.stringify(data.attribute))
+          localStorage.setItem('regulationToken', data.token)
+          localStorage.setItem('regulationUser', JSON.stringify(data.attribute))
           localStorage.setItem('_XPlow', encryptedUsername + 'rfw3252fr2g25t-5gtg355=' + encryptedPassword)
      
           setStatNotif(data.status)
@@ -180,7 +180,7 @@ const LayoutLogin = () => {
           setShowNotification(true)
           setTimeout(() => {
             setShowNotification(false)
-            router.push('/dashboard')
+            router.push('/document')
           }, 3000)
         } else {
           setStatNotif(data.status)
@@ -218,7 +218,7 @@ const LayoutLogin = () => {
                         {/* <div className="flex flex-row w-full text-sm font-light text-secondary justify-center mb-6 gap-2">ARENA</div> */}
                         <div className='flex flex-col my-6 w-full items-center'>
                             <Greeting text='Welcome!'/>
-                            <SubGreeting text='Sign in to continue to ARENA'/>
+                            <SubGreeting text='Sign in to continue to Company Regulation'/>
                         </div>
                     </header>
                     

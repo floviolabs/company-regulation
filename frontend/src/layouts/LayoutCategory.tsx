@@ -63,7 +63,7 @@ const LayoutCategory = () => {
         try {
           const config = {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+              Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
             },
           };
           const response = await axios.post(endpoint + 'categories/get-all', {}, config);
@@ -169,7 +169,7 @@ const LayoutCategory = () => {
             if(category){
                 const config = {
                     headers: {
-                        Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+                        Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
                     },
                 };
 
@@ -227,7 +227,7 @@ const LayoutCategory = () => {
         }
         const config = {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+                Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
             },
         };
         axios.post(`${endpoint}categories/delete`,x, config)

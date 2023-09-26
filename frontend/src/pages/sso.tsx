@@ -34,10 +34,10 @@ const SsoPage = () => {
     
         const data = await response.json()
         if (data.status) {
-            localStorage.setItem('arnToken', data.token)
-            localStorage.setItem('arnUser', JSON.stringify(data.attribute))
+            localStorage.setItem('regulationToken', data.token)
+            localStorage.setItem('regulationUser', JSON.stringify(data.attribute))
             localStorage.setItem('_XPlow', encryptedUsername + 'rfw3252fr2g25t-5gtg355=' + encryptedPassword)
-            router.push('/dashboard')
+            router.push('/document')
         }
     }
 

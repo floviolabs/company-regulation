@@ -6,15 +6,15 @@ const Index = () => {
   const router = useRouter()
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('arnToken')
+    const storedToken = localStorage.getItem('regulationToken')
     const isValidToken = tokenValidation(storedToken);
     
     try {
       if (isValidToken) {
-        router.push('/dashboard')
+        router.push('/document')
       }else{
-        localStorage.removeItem('arnToken');
-        localStorage.removeItem('arnUser');
+        localStorage.removeItem('regulationToken');
+        localStorage.removeItem('regulationUser');
         localStorage.removeItem('_XPlow');
         localStorage.removeItem('ally-supports-cache');
         router.push('/login')

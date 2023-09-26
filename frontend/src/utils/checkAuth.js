@@ -7,12 +7,12 @@ const CheckAuth = () => {
   const router = useRouter()
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('arnToken')
+    const storedToken = localStorage.getItem('regulationToken')
     const isValidToken = TokenValidation(storedToken)
    
     if (!isValidToken) {
-      localStorage.removeItem('arnToken')
-      localStorage.removeItem('arnUser')
+      localStorage.removeItem('regulationToken')
+      localStorage.removeItem('regulationUser')
       localStorage.removeItem('_XPlow')
       localStorage.removeItem('ally-supports-cache')
       setStatus(false)

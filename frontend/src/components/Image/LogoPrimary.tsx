@@ -5,9 +5,9 @@ const LogoPrimary = () => {
     return(
         <>
             <Image className={`mx-auto`}
-                alt='Arena'
-                width={70} height={50}
-                src={'/arena.png'}
+                alt='aeon'
+                width={120} height={50}
+                src={'/aeonstore.jpg'}
                 priority={true}
             />
         </>

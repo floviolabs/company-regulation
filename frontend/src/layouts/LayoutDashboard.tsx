@@ -12,10 +12,10 @@ const LayoutDashboard = () => {
     const [token, setToken] = useState<string | null>(null)
     const endpoint = process.env.NEXT_PUBLIC_EP
     
-    const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('arnUser')!))
+    const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('regulationUser')!))
     const [menuCategory, setMenuCategory] = useState<any[]>([])
 
-    const storedToken = localStorage.getItem('arnToken')
+    const storedToken = localStorage.getItem('regulationToken')
 
     type IconNames = keyof typeof Icons; 
     
@@ -23,7 +23,7 @@ const LayoutDashboard = () => {
         try {
           const config = {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+              Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
             },
           };
           const response = await axios.post(endpoint + 'menus/get-all', {}, config);
@@ -69,7 +69,7 @@ const LayoutDashboard = () => {
          
           const config = {
               headers: {
-                  Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+                  Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
               },
           };
 

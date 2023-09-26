@@ -4,8 +4,8 @@ import { useEffect } from "react"
 const LogoutPage = () => {
 
     useEffect(()=>{
-        localStorage.removeItem('arnToken');
-        localStorage.removeItem('arnUser');
+        localStorage.removeItem('regulationToken');
+        localStorage.removeItem('regulationUser');
         localStorage.removeItem('_XPlow');
         localStorage.removeItem('ally-supports-cache');
         router.push('/login')

@@ -81,7 +81,7 @@ const LayoutMenu = () => {
         try {
           const config = {
             headers: {
-              Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+              Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
             },
           };
           const response = await axios.post(endpoint + 'menus/get-all', {}, config);
@@ -190,7 +190,7 @@ const LayoutMenu = () => {
            
             const config = {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+                    Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
                 },
             };
 
@@ -247,7 +247,7 @@ const LayoutMenu = () => {
         }
         const config = {
             headers: {
-                Authorization: `Bearer ${localStorage.getItem('arnToken')}`,
+                Authorization: `Bearer ${localStorage.getItem('regulationToken')}`,
             },
         };
         axios.post(`${endpoint}menus/delete`,x, config)

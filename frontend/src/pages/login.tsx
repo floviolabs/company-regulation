@@ -8,9 +8,9 @@ const LoginPage = () => {
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
-        const storedToken = localStorage.getItem('arnToken')
+        const storedToken = localStorage.getItem('regulationToken')
         if (storedToken) {
-          router.push('/dashboard')
+          router.push('/document')
         }else{
             setIsLoading(false)
         }
@@ -19,7 +19,7 @@ const LoginPage = () => {
     return(
         <>
             <Head>
-                <title>ARENA - PT. AEON Indonesia</title>
+                <title>Company Regulation - PT. AEON Indonesia</title>
             </Head>
             {!isLoading && <LayoutLogin/>}
         </>
